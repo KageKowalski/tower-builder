@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://dea54x8t8odbp"]
+
+[ext_resource type="PackedScene" uid="uid://de3j70lkyjvml" path="res://blocks/simple_bedrock/simple_bedrock_floor.tscn" id="2_qqk5p"]
+[ext_resource type="PackedScene" uid="uid://dxnvifie3hiic" path="res://blocks/core_block/pearl.tscn" id="2_sgbue"]
+[ext_resource type="Script" path="res://msc/enemy_factory.gd" id="3_cf4vn"]
+
+[node name="PlayableArea" type="Node2D"]
+
+[node name="SimpleBedrockFloor" parent="." instance=ExtResource("2_qqk5p")]
+position = Vector2(960, 1057)
+
+[node name="Pearl" parent="." instance=ExtResource("2_sgbue")]
+position = Vector2(960, 1007)
+
+[node name="EnemyFactory" type="Node2D" parent="."]
+script = ExtResource("3_cf4vn")
+
+[node name="Timer" type="Timer" parent="EnemyFactory"]
+
+[node name="SpawnPoint1" type="Marker2D" parent="EnemyFactory"]
+position = Vector2(-136, 857)
+
+[node name="SpawnPoint2" type="Marker2D" parent="EnemyFactory"]
+position = Vector2(2039, 874)

@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://blaboy08jdpf7"]
+
+[ext_resource type="Script" path="res://msc/Main.gd" id="1_awa4h"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_awa4h")
+
+[node name="PlayButton" type="Button" parent="."]
+offset_left = 426.0
+offset_top = 130.0
+offset_right = 749.0
+offset_bottom = 271.0
+text = "Play"
+
+[node name="QuitButton" type="Button" parent="."]
+offset_left = 427.0
+offset_top = 358.0
+offset_right = 750.0
+offset_bottom = 499.0
+text = "Quit"
+
+[connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]

@@ -1,0 +1,53 @@
+[gd_scene load_steps=10 format=3 uid="uid://dbyefli6hegjc"]
+
+[ext_resource type="Script" path="res://enemies/enemy.gd" id="1_apljy"]
+[ext_resource type="Texture2D" uid="uid://dywpe4ym0pdiq" path="res://enemies/simple_enemy/assets/simple_enemy_1.png" id="2_j1krg"]
+[ext_resource type="Texture2D" uid="uid://cxn2meofeynpn" path="res://enemies/simple_enemy/assets/simple_enemy_2.png" id="3_16ksj"]
+[ext_resource type="Script" path="res://common/hurtbox.gd" id="4_b83ry"]
+[ext_resource type="Script" path="res://common/attackbox.gd" id="5_3vr1c"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_me622"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_j1krg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_16ksj")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 1.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qhqud"]
+size = Vector2(48, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_70flx"]
+size = Vector2(50, 98)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o3ohv"]
+size = Vector2(120, 98)
+
+[node name="SimpleEnemy" type="CharacterBody2D"]
+collision_layer = 0
+script = ExtResource("1_apljy")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_me622")
+animation = &"walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_qhqud")
+
+[node name="HurtBox" type="Area2D" parent="."]
+script = ExtResource("4_b83ry")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+shape = SubResource("RectangleShape2D_70flx")
+
+[node name="AttackBox" type="Area2D" parent="."]
+script = ExtResource("5_3vr1c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackBox"]
+shape = SubResource("RectangleShape2D_o3ohv")

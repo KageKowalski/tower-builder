@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bsawxee8m2v66"]
+
+[ext_resource type="Texture2D" uid="uid://bdde082m1a7h8" path="res://blocks/simple_bedrock/assets/simple_bedrock.png" id="1_vpfys"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tt8vp"]
+size = Vector2(48, 48)
+
+[node name="SimpleBedrock" type="StaticBody2D"]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -1)
+shape = SubResource("RectangleShape2D_tt8vp")
+
+[node name="SimpleBedrock" type="Sprite2D" parent="."]
+position = Vector2(-1, -1)
+texture = ExtResource("1_vpfys")
