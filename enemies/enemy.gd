@@ -4,7 +4,7 @@ extends CharacterBody2D
 
 @export var health := 1
 @export var value := 1
-@export var speed := 10
+@export var speed := 1
 
 
 @onready var animation := $AnimatedSprite2D
@@ -29,7 +29,7 @@ func _receive_damage(damage: int) -> void:
 		self.queue_free()
 
 func _physics_process(delta):
-	var core_block_position: Vector2 = %CoreBlock.get_position()
+	var core_block_position: Vector2 = Global.g_core_block.get_position()
 	var target_position: Vector2 = (core_block_position - self.position) * self.speed
 	self.velocity = target_position
 	
