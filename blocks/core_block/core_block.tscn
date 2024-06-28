@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://bu2tt7i0dmlbd"]
+
+[ext_resource type="Script" path="res://blocks/block.gd" id="1_d436e"]
+[ext_resource type="Texture2D" uid="uid://c7lslpso35qu3" path="res://blocks/core_block/assets/pearl.png" id="2_s2cer"]
+[ext_resource type="Script" path="res://common/hurtbox.gd" id="3_q7kxp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ulhwt"]
+radius = 26.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vr2jq"]
+radius = 27.0185
+
+[node name="CoreBlock" type="RigidBody2D"]
+script = ExtResource("1_d436e")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_s2cer")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ulhwt")
+
+[node name="HurtBox" type="Area2D" parent="."]
+script = ExtResource("3_q7kxp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+shape = SubResource("CircleShape2D_vr2jq")
