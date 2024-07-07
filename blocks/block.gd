@@ -20,6 +20,6 @@ func is_alive() -> bool:
 
 
 func _receive_damage(damage: int) -> void:
-	self.health = self.health - damage
+	health = health - damage
 	if health <= 0:
-		self.queue_free()
+		queue_free()

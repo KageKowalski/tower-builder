@@ -8,7 +8,7 @@ func _init() -> void:
 
 
 func _ready() -> void:
-	connect("area_entered", self._on_area_entered)
+	connect("area_entered", _on_area_entered)
 
 
 func _on_area_entered(hurtbox: HurtBox) -> void:

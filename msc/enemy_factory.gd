@@ -4,7 +4,7 @@ extends Node2D
 @export var SimpleEnemy: PackedScene
 
 
-@onready var start_node_count = self.get_child_count()
+@onready var start_node_count = get_child_count()
 @onready var current_node_count: int
 @onready var enemies := [SimpleEnemy]
 @onready var current_wave := 0
@@ -62,4 +62,4 @@ func _purchase_enemy() -> Enemy:
 func _spawn_enemy(enemy: Enemy, spawn_point: Vector2) -> void:
 	print("Spawning Enemy")
 	enemy.global_position = spawn_point
-	self.add_child(enemy)
+	add_child(enemy)

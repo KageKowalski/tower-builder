@@ -11,9 +11,9 @@ func _init() -> void:
 
 
 func _ready() -> void:
-	connect("area_entered", self._on_area_entered)
+	connect("area_entered", _on_area_entered)
 
 
 func _on_area_entered(hurtbox: HurtBox) -> void:
 	if hurtbox != null and hurtbox.owner.has_method("receive_damage"):
-		hurtbox.owner.receive_damage(self.damage)
+		hurtbox.owner.receive_damage(damage)
